@@ -1,0 +1,31 @@
+name: Old Bot Redirect
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: old-bot-redirect
+  cancel-in-progress: true   # পুরনো run বাতিল করে নতুন চালু হবে
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 245
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Old Bot Redirect
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.OLD_BOT_TOKEN }}
+        run: python old_bot.py
+        
