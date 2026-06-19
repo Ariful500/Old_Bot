@@ -10,7 +10,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 245
+    timeout-minutes: 360
 
     steps:
       - name: Checkout
