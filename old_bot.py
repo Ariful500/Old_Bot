@@ -24,7 +24,7 @@ MOVED_MARKUP = {
 }
 
 OFFSET = 0
-RUN_DURATION = 4 * 60 * 60 - 60  # ~4 ঘন্টা
+RUN_DURATION = 6 * 60 * 60 - 60
 
 
 def get_updates(offset):
@@ -66,7 +66,7 @@ def main():
 
     while True:
         if time.time() - start_time >= RUN_DURATION:
-            print("⏰ ৪ ঘন্টা সম্পন্ন। বন্ধ হচ্ছে।")
+            print("⏰ ৬ ঘন্টা সম্পন্ন। বন্ধ হচ্ছে।")
             break
 
         updates = get_updates(OFFSET)
